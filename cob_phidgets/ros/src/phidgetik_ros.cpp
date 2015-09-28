@@ -373,13 +373,13 @@ auto PhidgetIKROS::setDigitalOutCallback(cob_phidgets::SetDigitalSensor::Request
 	}
 	else
 	{
-		ROS_DEBUG("Could not find uri '%s' inside port uri mapping", req.uri.c_str());
+		ROS_ERROR("Could not find uri '%s' inside port uri mapping", req.uri.c_str());
 		res.uri = req.uri;
 		res.state = req.state;
 		ret = false;
 	}
 
-	return ret;
+	return true;
 }
 
 auto PhidgetIKROS::onDigitalOutCallback(const cob_phidgets::DigitalSensorConstPtr& msg) -> void
